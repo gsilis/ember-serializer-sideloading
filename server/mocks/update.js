@@ -16,5 +16,5 @@ module.exports = function(app, database) {
     }
   });
 
-  app.use('/api/update', updateRouter);
+  app.use('/api/updates', updateRouter);
 };

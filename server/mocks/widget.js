@@ -53,5 +53,5 @@ module.exports = function(app, database) {
     }
   });
 
-  app.use('/api/widget', widgetRouter);
+  app.use('/api/widgets', widgetRouter);
 };
