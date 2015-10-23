@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-export default DS.JSONAdapter.extend({
+export default DS.JSONAPIAdapter.extend({
   namespace: 'api',
 });
 
