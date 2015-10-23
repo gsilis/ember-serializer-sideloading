@@ -1,3 +1,15 @@
-<h2 id="title">Welcome to Ember</h2>
+<h1>Widgets</h1>
+<ul>
+{{#each model as |widget|}}
+  <li>
+    {{widget.name}} <button {{action "destroyWidget" widget}}>X</button>
+    {{#each widget.updates as |update|}}
+      {{update.createdAt}}
+    {{/each}}
+  </li>
+{{/each}}
+</ul>
+
+{{add-widget addWidget="addWidget"}}
 
 {{outlet}}
