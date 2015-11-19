@@ -4,7 +4,7 @@ module.exports = function(app, database) {
 
   updateRouter.get('/:id', function(req, res) {
     res.send({
-      update: database.findById('update', req.params.id),
+      update: database.find('update', req.params.id),
     });
   });
 

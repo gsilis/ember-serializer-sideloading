@@ -8,8 +8,8 @@ module.exports = function(app) {
 
   // Log proxy requests
   var morgan  = require('morgan');
+  app.use(bodyParser.json());
   app.use(morgan('dev'));
-  app.use(bodyParser.json({ type: 'application/*+json' }));
 
   seeds.seed(database);
 

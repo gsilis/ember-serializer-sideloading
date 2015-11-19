@@ -19,11 +19,10 @@ module.exports = function(app, database) {
   });
 
   widgetRouter.post('/', function(req, res) {
-    var rawRecord = JSON.parse(req.requestBody).widget;
-    
+    var rawRecord = req.body.widget;
     var record = database.save('widget', rawRecord);
-    addUpdateToWidget(database, record);
 
+    addUpdateToWidget(database, record);
     res.send({
       widget: record,
     });
@@ -36,7 +35,7 @@ module.exports = function(app, database) {
   });
 
   widgetRouter.put('/:id', function(req, res) {
-    var rawRecord = JSON.parse(req.requestBody).widget;
+    var rawRecord = req.body.widget;
     var record = database.save('widget', rawRecord);
     addUpdateToWidget(database, record);
   
