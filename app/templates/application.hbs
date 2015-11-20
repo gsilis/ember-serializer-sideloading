@@ -1,12 +1,10 @@
 <h1>Widgets</h1>
 <ul>
 {{#each model as |widget|}}
-  <li>
-    {{widget.name}} <button {{action "destroyWidget" widget}}>X</button>
-    {{#each widget.updates as |update|}}
-      {{update.createdAt}}
-    {{/each}}
-  </li>
+  {{update-widget widget=widget}}
+  {{#each widget.updates as |update|}}
+    {{update.createdAt}}
+  {{/each}}
 {{/each}}
 </ul>
 

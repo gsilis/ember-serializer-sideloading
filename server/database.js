@@ -31,7 +31,7 @@ module.exports = {
 
   save: function(modelName, data) {
     var store = this._findOrCreateStore(modelName);
-    
+ 
     if (data.id) {
       data.id = +data.id;
       data.created_at = (new Date()).toString();
