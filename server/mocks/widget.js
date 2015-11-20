@@ -8,8 +8,13 @@ module.exports = function(app, database) {
       widget_id: widget.id,
     });
 
-    widget.update_ids = widget.update_ids || [];
-    widget.update_ids.push(update.id);
+    var ids = widget.update_ids || [];
+    ids.push(update.id);
+    ids = ids.map(function(id) {
+      return parseInt(id);
+    });
+
+    widget.update_ids = ids;
   };
 
   widgetRouter.get('/', function(req, res) {
@@ -36,6 +41,7 @@ module.exports = function(app, database) {
 
   widgetRouter.put('/:id', function(req, res) {
     var rawRecord = req.body.widget;
+    rawRecord.id = parseInt(req.params.id);
     var record = database.save('widget', rawRecord);
     addUpdateToWidget(database, record);
   

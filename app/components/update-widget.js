@@ -8,8 +8,8 @@ export default Ember.Component.extend({
 
       widget.save().then(() => {
         console.log('Widget was updated');
-      }).catch(() => {
-        console.log('Could not update the widget');
+      }).catch((error) => {
+        console.log('Could not update the widget', error);
       });
     },
 
